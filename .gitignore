@@ -1,0 +1,7 @@
+.settings.xml
+desktop.ini
+*~
+*.swp
+
+# not yet safe to release:
+qrctrl
