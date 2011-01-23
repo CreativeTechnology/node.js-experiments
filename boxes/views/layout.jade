@@ -1,0 +1,20 @@
+!!! 5
+html(lang="en")
+  head
+    title RGB Box
+    link(href="/style.css", media="screen", rel="stylesheet", type="text/css")
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", type="application/javascript")
+    script(src="/socket.io/socket.io.js", type="application/javascript")
+    :javascript
+      | var socket = new io.Socket('127.0.0.1');
+      | $(document).ready(function() {
+      |   socket.connect();
+      |   socket.on('connect', function(){});
+      |   socket.on('message', function(msg){
+      |     if (msg == 'red' ||msg == 'green' ||msg == 'blue') {
+      |       $('#box').css('background',msg);
+      |     }
+      |   });
+      |   socket.on('disconnect', function(){});
+      | });
+  body!= body
